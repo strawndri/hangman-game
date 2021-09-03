@@ -1,8 +1,6 @@
 from lib import style as s
-
-s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
-
-
+from lib import word as w
+from time import sleep
 
 def man():
     print(f'''{" ":>53}==================================================
@@ -17,14 +15,7 @@ def man():
     leg_left = f'{"  /":>78}'
     leg_right = f'  \\'
 
-    man = ['',
-           '',
-           '',
-           '',
-           '',
-           '',
-           '',
-           '']
+    man = ['', '', '', '', '', '', '', '']
 
     for i, item in enumerate(man):
         if (i == 2 or i == 3 or i == 6):
@@ -32,8 +23,39 @@ def man():
         else:
             print(item)
 
+def writeLetters(l='none'):
+
+    theme, word = w.chooseWord()
+    secret_word = []
+
+    for item in word:
+        if(item == l):
+            print(l)
+            secret_word.append(l)
+        elif (item == ' '):
+            secret_word.append(' * ')
+        else:
+            secret_word.append('_')
 
 
-man()
+    s.write(f'Theme: {theme.upper()}  -->   ', 'yellow', br=False)
+    for item in secret_word:
+        print(item, end=' ')
+    s.write(' ')
 
-s.write('Deseja jogar?', 'yellow', True)
+
+def play():
+    s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
+    s.write("Wait for a minute, we're choosing a word...", 'blue')
+    sleep(1)
+    writeLetters()
+    man()
+    while True:
+        s.write('> Choose a letter: ', 'purple', br=False)
+        letter = input()
+        writeLetters(letter)
+        print('\n' * 100)
+        play()
+
+
+

@@ -1,5 +1,6 @@
 from random import choice, randint
 
+
 def chooseWord():
     words = {'food': ['apples', 'avocado', 'banana', 'beet', 'blueberry', 'bacon', 'bread', 'broccoli',
                       'cucumber', 'cheese', 'jellybean', 'lemon', 'lime', 'milk', 'potato', 'rice', 'sausage',
@@ -11,5 +12,8 @@ def chooseWord():
              'place': ['house', 'hospital', 'restaurant', 'bookstore', 'library', 'factory', 'movie theater', 'museum',
                        'gas station', 'school', 'office']}
 
+    #theme = choice(['food', 'animal', 'color', 'object'', place'])
+    #item = randint(0, (len(theme) - 1))
+    word = words['food'][0]
 
-    return words['place'][6]
+    return 'food', word
