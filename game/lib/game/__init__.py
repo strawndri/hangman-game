@@ -1,12 +1,11 @@
 from lib import style as s
 from lib import word as w
 from time import sleep
-import sys
 
 secret_word = []
+letters = []
 
-
-def man():
+def man(check=True):
     print(f'''{" ":>53}==================================================
               {" ":>64}||''')
 
@@ -22,7 +21,7 @@ def man():
     man = ['', '', '', '', '', '', '', '']
 
     for i, item in enumerate(man):
-        if (i == 2 or i == 3 or i == 6):
+        if (i == 2 or i == 3 or i == 7):
             print(item, end='')
         else:
             print(item)
@@ -42,6 +41,11 @@ def writeLetters(l='_'):
             if (item == l):
                 secret_word.pop(i)
                 secret_word.insert(i, l)
+        letters.append(l)
+
+    s.write(f'    Letters:', 'blue', br=False)
+    for item in letters:
+        print(item, end=', ')
 
     s.write(f'Theme: {theme.upper()}  -->   ', 'yellow', br=False)
 
@@ -49,20 +53,25 @@ def writeLetters(l='_'):
         print(item, end=' ')
     s.write(' ')
 
-
-
-
+    if (l not in word):
+        return False
+    else:
+        return True
 
 
 def play():
     s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
     s.write("Wait for a minute, we're choosing a word...", 'blue')
-    sleep(1)
+    sleep(3)
+    print('\n' * 20)
     writeLetters()
-    man()
+    check = True
     while True:
+        man(check)
+        print('\n' * 12)
         s.write('> Choose a letter: ', 'purple', br=False)
         letter = input()
-        writeLetters(letter)
+        check = writeLetters(letter)
+
 
 

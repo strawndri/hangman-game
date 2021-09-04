@@ -12,8 +12,8 @@ def chooseWord():
              'place': ['house', 'hospital', 'restaurant', 'bookstore', 'library', 'factory', 'movie theater', 'museum',
                        'gas station', 'school', 'office']}
 
-    #theme = choice(['food', 'animal', 'color', 'object'', place'])
-    #item = randint(0, (len(theme) - 1))
-    word = words['place'][6]
+    theme = choice(['food', 'animal', 'color', 'object'', place'])
+    item = randint(0, (len(theme) - 1))
+    word = words[theme][item]
 
-    return 'place', word
+    return theme, word
