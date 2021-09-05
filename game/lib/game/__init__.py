@@ -50,7 +50,7 @@ def writeLetters(theme, word, l='_'):
                 secret_word.insert(i, l)
         letters.append(l)
 
-    s.write(f'    Letters:', 'blue', br=False)
+    s.write(f'LETTERS: ', 'blue', br=False)
     for item in letters:
         print(item, end=', ')
 
