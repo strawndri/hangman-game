@@ -4,8 +4,11 @@ from time import sleep
 
 secret_word = []
 letters = []
+man = ['', '', '', '', '', '', '', '']
 
-def man(check=True):
+
+def hanged_man(check=True, n=0):
+
     print(f'''{" ":>53}==================================================
               {" ":>64}||''')
 
@@ -18,17 +21,21 @@ def man(check=True):
     leg_left = f'{"  /":>78}'
     leg_right = f'  \\'
 
-    man = ['', '', '', '', '', '', '', '']
+    list = [head, rope, arm_left, body, arm_right, body2, leg_left, leg_right]
+
+    if check == False:
+        man.pop()
+        man.insert(n, list[n])
 
     for i, item in enumerate(man):
-        if (i == 2 or i == 3 or i == 7):
+        if (i == 2 or i == 3 or i == 6):
             print(item, end='')
         else:
             print(item)
 
-def writeLetters(l='_'):
 
-    theme, word = w.chooseWord()
+
+def writeLetters(theme, word, l='_'):
 
     if (l == '_'):
         for item in word:
@@ -38,7 +45,7 @@ def writeLetters(l='_'):
                 secret_word.append('_')
     else:
         for i, item in enumerate(word):
-            if (item == l):
+            if (l == item):
                 secret_word.pop(i)
                 secret_word.insert(i, l)
         letters.append(l)
@@ -63,15 +70,22 @@ def play():
     s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
     s.write("Wait for a minute, we're choosing a word...", 'blue')
     sleep(3)
+    theme, word = w.chooseWord()
     print('\n' * 20)
-    writeLetters()
+    writeLetters(theme, word)
     check = True
+    num = 0
     while True:
-        man(check)
+
+        if (check):
+            hanged_man(check)
+        else:
+            hanged_man(check, num)
+            num += 1
         print('\n' * 12)
         s.write('> Choose a letter: ', 'purple', br=False)
         letter = input()
-        check = writeLetters(letter)
+        check = writeLetters(theme, word, letter)
 
 
 
