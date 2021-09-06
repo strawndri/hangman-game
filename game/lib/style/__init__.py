@@ -15,7 +15,7 @@ def write(text, color='none', line=False, br=True):
         print(text.center(155))
         print('-' * 155, colors['none'])
     elif (br == False):
-        print(f'{" ":>53}{text}', end=' ')
+        print(f'{" ":>53}{text}{colors["none"]}', end=' ')
     else:
         print(text.center(155), colors['none'])
 
