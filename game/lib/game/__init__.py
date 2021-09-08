@@ -47,12 +47,17 @@ def checkLetters(theme, word, l='_'):
                 secret_word.insert(i, l)
         letters.append(l)
 
-    if (l not in word and l != 'none'):
+    if (l == 'none'):
+        n = 3
+        c = True
+    elif (l not in word):
         c = False
+        n = 2
     else:
         c = True
+        n = 1
 
-    return c
+    return c, n
 
 
 def message(letters_list, t, sw, number=0):
@@ -97,20 +102,22 @@ def play():
             hanged_man(check)
         elif (check == True):
             hanged_man(check)
-            n = 1
         else:
             hanged_man(check, error)
             error += 1
-            n = 2
         print('\n' * 8)
 
         s.write('> Choose a letter: ', 'purple', br=False)
         letter = input()
 
         if not letter.isalpha() or len(letter) > 1:
-            n = 3
             letter = 'none'
 
-        check = checkLetters(theme, word, letter)
-        message(letters, theme, secret_word, n)
+        check, num = checkLetters(theme, word, letter)
+        message(letters, theme, secret_word, num)
+
+        if not '_' in secret_word:
+            break
+
+
 
