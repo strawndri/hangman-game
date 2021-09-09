@@ -1,11 +1,15 @@
 from lib import style as s
 from lib import word as w
 from time import sleep
-import sys
+import pygame
+pygame.init()
 
 secret_word = []
 letters = []
 man = ['', '', '', '', '', '', '', '']
+
+correct = pygame.mixer.Sound('./correct.mp3')
+error = pygame.mixer.Sound('./error.mp3')
 
 def hanged_man(check=True, n=0):
     print(f'''{" ":>53}==================================================
@@ -63,11 +67,17 @@ def checkLetters(theme, word, l='_'):
 def message(letters_list, t, sw, number=0):
 
     if number == 1:
+        correct.play()
         s.write(" Well done! Let's continues...", 'green', line=True)
     elif number == 2:
+        error.play()
         s.write(" Poor you... wrong letter :( ", 'red', line=True)
     elif number == 3:
+        error.play()
         s.write(' (!) ERROR -> Insert a correct value.', 'red', line=True)
+    elif number == 4:
+        error.play()
+        s.write(" (!) ERROR -> You've just written this word. Try again.", 'red', line=True)
 
     s.write(f'LETTERS: ', 'blue', br=False)
     for item in letters_list:
@@ -83,19 +93,20 @@ def message(letters_list, t, sw, number=0):
 def play():
     s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
     s.write("Wait for a minute, we're choosing a word...", 'blue')
-    # sleep(3)
+    s.write('Write "stop" to stop the game.', 'blue')
+    sleep(3)
 
     # --- variables
     theme, word = w.chooseWord()
     error = 0
     check = ' '
-    n = 0
+    num = 0
     # -------------
 
     print('\n' * 10)
     s.write(" HANGMAN ", 'blue', line=True)
     checkLetters(theme, word)
-    message(letters, theme, secret_word, n)
+    message(letters, theme, secret_word, num)
     while True:
 
         if check == ' ':
@@ -110,13 +121,20 @@ def play():
         s.write('> Choose a letter: ', 'purple', br=False)
         letter = input()
 
-        if not letter.isalpha() or len(letter) > 1:
+
+        if not letter.isalpha() or len(letter) > 1 or letter in letters:
             letter = 'none'
 
         check, num = checkLetters(theme, word, letter)
         message(letters, theme, secret_word, num)
 
         if not '_' in secret_word:
+            s.write('CONGRATULATIONS! You got it!', 'green', line=True)
+            print('\n' * 18)
+            break
+        elif (error == 8):
+            s.write('GAME OVER', 'red', line=True)
+            print('\n' * 18)
             break
 
 
