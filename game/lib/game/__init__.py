@@ -129,7 +129,7 @@ def play():
         print('\n' * 8)
 
         s.write('> Choose a letter: ', 'purple', br=False)
-        letter = input()
+        letter = input().upper().strip()
 
 
         if not letter.isalpha() or len(letter) > 1 or letter in letters:

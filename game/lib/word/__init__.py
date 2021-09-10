@@ -16,4 +16,4 @@ def chooseWord():
     item = randint(0, (len(theme) - 1))
     word = words[theme][item]
 
-    return theme, word
+    return theme, word.upper()
