@@ -141,13 +141,15 @@ def play():
         if not '_' in secret_word:
             congratulations.play()
             s.write('CONGRATULATIONS! You got it!', 'green', line=True)
-            print('\n' * 18)
+            s.write(f'WORD: {word}', 'blue', line=True)
+            print('\n' * 15)
             sleep(2)
             break
         elif (error == 8):
             game_over.play()
             s.write('GAME OVER', 'red', line=True)
-            print('\n' * 18)
+            s.write(f'WORD: {word.upper()}', 'blue', line=True)
+            print('\n' * 15)
             sleep(2)
             break
 
