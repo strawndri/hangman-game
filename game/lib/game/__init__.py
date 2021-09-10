@@ -13,6 +13,12 @@ error = pygame.mixer.Sound('./assets/error.mp3')
 congratulations = pygame.mixer.Sound('./assets/congratulations.mp3')
 game_over = pygame.mixer.Sound('./assets/game_over.mp3')
 
+def loading():
+
+    for item in range(0, 26):
+        print(f'\r{item * 4}%', end=' ')
+        print('▒▒▒▒▒▒' * item, end='')
+        sleep(0.3)
 
 def hanged_man(check=True, n=0):
     print(f'''{" ":>53}==================================================
@@ -97,7 +103,8 @@ def play():
     s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
     s.write("Wait for a minute, we're choosing a word...", 'blue')
     s.write('Write "stop" to stop the game.', 'blue')
-    sleep(3)
+    print('\n' * 10)
+    loading()
 
     # --- variables
     theme, word = w.chooseWord()
