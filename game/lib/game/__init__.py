@@ -8,8 +8,11 @@ secret_word = []
 letters = []
 man = ['', '', '', '', '', '', '', '']
 
-correct = pygame.mixer.Sound('./correct.mp3')
-error = pygame.mixer.Sound('./error.mp3')
+correct = pygame.mixer.Sound('./assets/correct.mp3')
+error = pygame.mixer.Sound('./assets/error.mp3')
+congratulations = pygame.mixer.Sound('./assets/congratulations.mp3')
+game_over = pygame.mixer.Sound('./assets/game_over.mp3')
+
 
 def hanged_man(check=True, n=0):
     print(f'''{" ":>53}==================================================
@@ -129,12 +132,16 @@ def play():
         message(letters, theme, secret_word, num)
 
         if not '_' in secret_word:
+            congratulations.play()
             s.write('CONGRATULATIONS! You got it!', 'green', line=True)
             print('\n' * 18)
+            sleep(2)
             break
         elif (error == 8):
+            game_over.play()
             s.write('GAME OVER', 'red', line=True)
             print('\n' * 18)
+            sleep(2)
             break
 
 
