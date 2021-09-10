@@ -2,6 +2,7 @@ from lib import style as s
 from lib import word as w
 from time import sleep
 import pygame
+
 pygame.init()
 
 secret_word = []
@@ -13,12 +14,13 @@ error = pygame.mixer.Sound('./assets/error.mp3')
 congratulations = pygame.mixer.Sound('./assets/congratulations.mp3')
 game_over = pygame.mixer.Sound('./assets/game_over.mp3')
 
-def loading():
 
+def loading():
     for item in range(0, 26):
         print(f'\r{item * 4}%', end=' ')
         print('▒▒▒▒▒▒' * item, end='')
         sleep(0.3)
+
 
 def hanged_man(check=True, n=0):
     print(f'''{" ":>53}==================================================
@@ -74,7 +76,6 @@ def checkLetters(theme, word, l='_'):
 
 
 def message(letters_list, t, sw, number=0):
-
     if number == 1:
         correct.play()
         s.write(" Well done! Let's continues...", 'green', line=True)
@@ -111,6 +112,7 @@ def play():
     error = 0
     check = ' '
     num = 0
+    end = False
     # -------------
 
     print('\n' * 10)
@@ -131,27 +133,31 @@ def play():
         s.write('> Choose a letter: ', 'purple', br=False)
         letter = input().upper().strip()
 
+        # End Messages -----------------
 
-        if not letter.isalpha() or len(letter) > 1 or letter in letters:
-            letter = 'none'
+        if (letter == 'stop'):
+            game_over.play()
+            s.write('THE GAME WAS BROKE UP', 'yellow', line=True)
+            end = True
 
-        check, num = checkLetters(theme, word, letter)
-        message(letters, theme, secret_word, num)
-
-        if not '_' in secret_word:
+        elif (not '_' in secret_word):
             congratulations.play()
             s.write('CONGRATULATIONS! You got it!', 'green', line=True)
+            end = True
+
+        elif (error == 8):
+            game_over.play()
+            s.write('GAME OVER', 'red', line=True)
+            end = True
+
+        if end:
             s.write(f'WORD: {word}', 'blue', line=True)
             print('\n' * 15)
             sleep(2)
             break
-        elif (error == 8):
-            game_over.play()
-            s.write('GAME OVER', 'red', line=True)
-            s.write(f'WORD: {word.upper()}', 'blue', line=True)
-            print('\n' * 15)
-            sleep(2)
-            break
 
+        if ((not letter.isalpha()) or (len(letter) > 1) or (letter in letters)):
+            letter = 'none'
 
-
+        check, num = checkLetters(theme, word, letter)
+        message(letters, theme, secret_word, num)

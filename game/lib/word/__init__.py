@@ -2,7 +2,7 @@ from random import choice, randint
 
 
 def chooseWord():
-    words = {'food': ['apples', 'avocado', 'banana', 'beet', 'blueberry', 'bacon', 'bread', 'broccoli',
+    words = {'food': ['apple', 'avocado', 'banana', 'beet', 'blueberry', 'bacon', 'bread', 'broccoli',
                       'cucumber', 'cheese', 'jellybean', 'lemon', 'lime', 'milk', 'potato', 'rice', 'sausage',
                       'strawberry', 'soda'],
              'animal': ['cat', 'cow', 'dog', 'fish', 'frog', 'horse', 'pig', 'turtle'],
