@@ -1,6 +1,6 @@
 from random import choice, randint
 
-
+# choose a specific theme and a word
 def chooseWord():
     words = {'food': ['apple', 'avocado', 'banana', 'beet', 'blueberry', 'bacon', 'bread', 'broccoli',
                       'cucumber', 'cheese', 'jellybean', 'lemon', 'lime', 'milk', 'potato', 'rice', 'sausage',

@@ -2,27 +2,31 @@ from lib import style as s
 from lib import word as w
 from time import sleep
 import pygame
-
 pygame.init()
 
+
+# variables ----------------------------------------------------
 secret_word = []
 letters = []
 man = ['', '', '', '', '', '', '', '']
 
+# audios
 correct = pygame.mixer.Sound('./assets/correct.mp3')
 error = pygame.mixer.Sound('./assets/error.mp3')
 congratulations = pygame.mixer.Sound('./assets/congratulations.mp3')
 game_over = pygame.mixer.Sound('./assets/game_over.mp3')
 stop = pygame.mixer.Sound('./assets/stop.mp3')
+# --------------------------------------------------------------
 
 
+# Loading bar
 def loading():
     for item in range(0, 26):
         print(f'\r{item * 4}%', end=' ')
         print('▒▒▒▒▒▒' * item, end='')
         sleep(0.3)
 
-
+# Make the hanged man when the user insert a wrong letter
 def hanged_man(check=True, n=0):
     print(f'''{" ":>53}==================================================
               {" ":>64}||''')
@@ -36,19 +40,22 @@ def hanged_man(check=True, n=0):
     leg_left = f'{"  /":>78}'
     leg_right = f'  \\'
 
+    # auxiliary list
     list = [head, rope, arm_left, body, arm_right, body2, leg_left, leg_right]
 
+    # add parts of the body
     if check == False:
         man.pop()
         man.insert(n, list[n])
 
+    # print the man
     for i, item in enumerate(man):
         if (i == 2 or i == 3 or i == 6):
             print(item, end='')
         else:
             print(item)
 
-
+# check if the letter is in the chosen word
 def checkLetters(theme, word, l='_'):
     if (l == '_'):
         for item in word:
@@ -75,7 +82,7 @@ def checkLetters(theme, word, l='_'):
 
     return c, n
 
-
+# shows a message on the top of the screen
 def message(letters_list, t, sw, number=0):
     if number == 1:
         correct.play()
@@ -90,6 +97,7 @@ def message(letters_list, t, sw, number=0):
         error.play()
         s.write(" (!) ERROR -> You've just written this word. Try again.", 'red', line=True)
 
+    # Used letters
     s.write(f'LETTERS: ', 'blue', br=False)
     for item in letters_list:
         print(item, end=', ')
@@ -100,8 +108,10 @@ def message(letters_list, t, sw, number=0):
         print(item, end=' ')
     s.write(' ')
 
-
+# Run the game
 def play():
+
+    # Initial Message
     s.write('WELCOME TO THE GAME: HANGMAN', 'blue', True)
     s.write("Wait for a minute, we're choosing a word...", 'blue')
     s.write('Write "stop" to stop the game.', 'blue')
@@ -116,10 +126,13 @@ def play():
     end = False
     # -------------
 
+    # First Message
     print('\n' * 10)
     s.write(" HANGMAN ", 'blue', line=True)
     checkLetters(theme, word)
     message(letters, theme, secret_word, num)
+
+    # Ask and Check letters
     while True:
 
         if check == ' ':
@@ -161,6 +174,7 @@ def play():
             sleep(2)
             break
 
+        # Return the message on the top
         message(letters, theme, secret_word, num)
 
 
