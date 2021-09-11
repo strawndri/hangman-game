@@ -13,6 +13,7 @@ correct = pygame.mixer.Sound('./assets/correct.mp3')
 error = pygame.mixer.Sound('./assets/error.mp3')
 congratulations = pygame.mixer.Sound('./assets/congratulations.mp3')
 game_over = pygame.mixer.Sound('./assets/game_over.mp3')
+stop = pygame.mixer.Sound('./assets/stop.mp3')
 
 
 def loading():
@@ -133,18 +134,22 @@ def play():
         s.write('> Choose a letter: ', 'purple', br=False)
         letter = input().upper().strip()
 
+        if ((not letter.isalpha()) or (len(letter) > 1) or (letter in letters)):
+            if letter != 'STOP':
+                letter = 'none'
+
+        check, num = checkLetters(theme, word, letter)
+
         # End Messages -----------------
 
-        if (letter == 'stop'):
-            game_over.play()
+        if (letter == 'STOP'):
+            stop.play()
             s.write('THE GAME WAS BROKE UP', 'yellow', line=True)
             end = True
-
         elif (not '_' in secret_word):
             congratulations.play()
             s.write('CONGRATULATIONS! You got it!', 'green', line=True)
             end = True
-
         elif (error == 8):
             game_over.play()
             s.write('GAME OVER', 'red', line=True)
@@ -156,8 +161,7 @@ def play():
             sleep(2)
             break
 
-        if ((not letter.isalpha()) or (len(letter) > 1) or (letter in letters)):
-            letter = 'none'
-
-        check, num = checkLetters(theme, word, letter)
         message(letters, theme, secret_word, num)
+
+
+
