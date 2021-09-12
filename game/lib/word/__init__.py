@@ -6,7 +6,10 @@ def chooseWord():
                       'cucumber', 'cheese', 'jellybean', 'lemon', 'lime', 'milk', 'potato', 'rice', 'sausage',
                       'strawberry', 'soda', 'coconut', 'coffee', 'cake', 'cabbage', 'donut', 'egg', 'french fries',
                       'fungi', 'grape', 'guava', 'hamburger', 'honey', 'hot dog', 'lollipop', 'mango', 'melon',
-                      'orange', 'onion', 'pie', 'tomato', 'watermelon', 'yogurt', 'zucchini'],
+                      'orange', 'onion', 'pie', 'tomato', 'watermelon', 'yogurt', 'zucchini', 'eggplant', 'pumpkin',
+                      'cauliflower', 'garlic', 'onion', 'carrot', 'pepper', 'kiwi', 'peach', 'passion fruit', 'papaya',
+                      'pear', 'pineapple', 'tea', 'juice', 'water', 'wine', 'cookie', 'cupcake', 'ice cream', 'chocolate',
+                      'toast', 'pancakes'],
 
              'animal': ['cat', 'cow', 'dog', 'fish', 'frog', 'horse', 'pig', 'turtle', 'penguin', 'elephant', 'lion',
                         'bee', 'monkey', 'alligator', 'snake', 'wolf', 'tiger', 'spider', 'worm', 'mice', 'mouse',
@@ -18,11 +21,18 @@ def chooseWord():
 
              'object': ['pen', 'cup', 'notebook', 'paper', 'shoe', 'glasses', 'book', 'air conditioner', 'bag',
                         'bed', 'chair', 'computer', 'dishwasher', 'lamp', 'microwave', 'towel', 'umbrella',
-                        'vacuum cleaner', 'television'],
+                        'vacuum cleaner', 'television', 'ring', 'bicycle', 'ball', 'earring', 'necklace', 'cup',
+                        'cellphone', 'spoon', 'mirror', 'knife', 'camera', 'window', 'bin', 'backpack', 'guitar',
+                        'newspaper', 'sofa', 'keyboard', 'eraser', 'broom', 'bookshelf', 'pillow', 'toilet'],
 
              'place': ['house', 'hospital', 'restaurant', 'bookstore', 'library', 'factory', 'movie theater', 'museum',
                        'gas station', 'school', 'office', 'supermarket', 'hotel', 'fire department', 'church', 'square',
-                       'cafe', 'bank', 'pharmacy', 'hair salon', 'barber shop', 'laundry']}
+                       'cafe', 'bank', 'pharmacy', 'hair salon', 'barber shop', 'laundry'],
+
+             'job': ['teacher', 'postman', 'postwoman', 'vet', 'actor', 'actress', 'musician', 'nurse', 'barber', 'dentist',
+                     'farmer', 'plumber', 'chemist', 'policeman', 'policewoman', 'painter', 'detective', 'artist', 'cleaner',
+                     'baker', 'singer', 'driver', 'doctor', 'pilot', 'waitress', 'waiter', 'dancer', 'gardener', 'dustman',
+                     'dustwoman', 'astronaut', 'businesswoman', 'businessman', 'cook', 'firefighter', 'cashier']}
 
     theme = choice(['food', 'animal', 'color', 'object', 'place'])
     item = randint(0, (len(theme) - 1))
