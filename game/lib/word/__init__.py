@@ -34,7 +34,7 @@ def chooseWord():
                      'baker', 'singer', 'driver', 'doctor', 'pilot', 'waitress', 'waiter', 'dancer', 'gardener', 'dustman',
                      'dustwoman', 'astronaut', 'businesswoman', 'businessman', 'cook', 'firefighter', 'cashier']}
 
-    theme = choice(['food', 'animal', 'color', 'object', 'place'])
+    theme = choice(['food', 'animal', 'color', 'object', 'place', 'job'])
     item = randint(0, (len(theme) - 1))
     word = words[theme][item]
 
