@@ -1,7 +1,7 @@
 
 <h1 align="center"> Hangman Game </h1>
 
-  <img src="https://i.imgur.com/Kz1PEuZ.png" alt='Banner. Imagem com fundo verde com uma borda cinza escuro em seu entorno. Ao centro, há um retângulo cinza escuro com o texto: "Hangman game". Ao lado esquerdo desse retângulo, há um ícone da linguagem de programação Python, com a representação de duas cobras com sentidos verticais opostos. Ao lado direito do retângulo, há a ilustração de uma cobra verde, com a língua para fora e cor olhos amarelos.' />
+  <img src="https://i.imgur.com/UcJsKoU.png" alt='Banner. Imagem com fundo verde com uma borda cinza escuro em seu entorno. Ao centro, há um retângulo cinza escuro com o texto: "Hangman game". Ao lado esquerdo desse retângulo, há um ícone da linguagem de programação Python, com a representação de duas cobras com sentidos verticais opostos. Ao lado direito do retângulo, há a ilustração de uma cobra verde, com a língua para fora e cor olhos amarelos.' />
 </p>
 
 <p align="center">
