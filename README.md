@@ -1,42 +1,36 @@
+# 🕹️ | Hangman Game
 
-<h1 align="center"> Hangman Game </h1>
+![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-f5b5ca.svg)
+![Status](https://img.shields.io/badge/Status-Concluído-abf285.svg)
 
-  <img src="https://i.imgur.com/UcJsKoU.png" alt='Banner. Imagem com fundo verde com uma borda cinza escuro em seu entorno. Ao centro, há um retângulo cinza escuro com o texto: "Hangman game". Ao lado esquerdo desse retângulo, há um ícone da linguagem de programação Python, com a representação de duas cobras com sentidos verticais opostos. Ao lado direito do retângulo, há a ilustração de uma cobra verde, com a língua para fora e cor olhos amarelos.' />
-</p>
+## Índice
 
-<p align="center">
-    <img src='https://img.shields.io/badge/License-MIT-f2a2b7?style=for-the-badge&logo=appveyor' alt='Badge. Retângulo dividido em duas partes: no lado esquerdo, o retângulo possui a cor cinza, um círculo azul com vazados e o texto "LICENSE"; no lado direito, o retângulo é cor-de-rosa e contém o texto "MIT".'>
-    <img src='https://img.shields.io/badge/Status-Finalizado-abf285?style=for-the-badge&logo=appveyor' alt='Badge. Retângulo dividido em duas partes: no lado esquerdo, o retângulo possui a cor cinza, um círculo azul com vazados e o texto "STATUS"; no lado direito, o retângulo é verde e contém o texto "Finalizado".'>
-</p>
+- [Sobre o projeto](#sobre-o-projeto)
+- [Aprendizagens](#aprendizagens)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Licença](#licença)
 
+## Sobre o projeto
 
-### Tópicos 
-
-:small_blue_diamond: [Sobre o projeto](#sobre-o-projeto)
-
-:small_blue_diamond: [Conhecimentos adquiridos](#conhecimentos-adquiridos)
-
-:small_blue_diamond: [Tecnologias](#tecnologias)
-
----
-
-## Sobre o projeto 
 O projeto "Hangman Game" foi desenvolvido na linguagem de programação Python com vistas a aprofundar os conhecimentos da linguagem e desenvolver um jogo da forca interativo, em que o usuário pode tentar adivinhar uma das palavras selecionada pelo programa.
 
-## Conhecimentos adquiridos
+## Aprendizagens
+
 - Utilização/criação de módulos e pacotes;
 - Laços de repetição `for` e `while`;
 - Tuplas, listas e dicionários;
 - Funções;
 - Utilização de cores no terminal.
 
-## Tecnologias
-- **IDE (Ambiente de Desenvolvimento integrado):**
-  - [x] [Pycharm](https://www.jetbrains.com/pycharm/)
-- **Linguagem**:
-  - [x] [Python](https://docs.python.org/3/)
+## Tecnologias utilizadas
 
-## Feito com carinho por:
+- [PyCharm](https://www.jetbrains.com/pycharm/): IDE (Ambiente de Desenvolvimento Integrado) para Python;
+- [Python](https://docs.python.org/3/): Linguagem de programação.
 
-| [<img src="https://avatars.githubusercontent.com/u/62841828?v=4" width=115><br><sub>Andrieli Luci Gonçalves</sub>](https://github.com/strawndri) |
-| :---: |
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT). Consulte o arquivo `LICENSE` para obter mais informações sobre os termos de licenciamento.
+
+---
+
+✨ Feito com carinho por [Andrieli Gonçalves](https://github.com/strawndri).
